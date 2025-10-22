@@ -1,0 +1,133 @@
+.quiz-container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+#question {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+    line-height: 1.5;
+    text-align: right;
+}
+
+.btn-grid {
+    display: grid;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+.btn {
+    background-color: #f8f9fa;
+    border: 2px solid #dee2e6;
+    border-radius: 5px;
+    padding: 15px 20px;
+    font-size: 1.1em;
+    cursor: pointer;
+    text-align: right;
+    transition: all 0.2s;
+}
+
+.btn:hover {
+    background-color: #e9ecef;
+}
+
+.btn.correct {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.btn.wrong {
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: #721c24;
+}
+
+.btn:disabled {
+    cursor: not-allowed;
+    opacity: 0.8;
+}
+
+.controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.hide {
+    display: none;
+}
+
+#answer-result {
+    margin: 20px 0;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.result-icon {
+    font-size: 1.5em;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.correct-answer {
+    color: #155724;
+    background-color: #d4edda;
+}
+
+.wrong-answer {
+    color: #721c24;
+    background-color: #f8d7da;
+}
+
+#final-result {
+    text-align: right;
+}
+
+.final-score {
+    font-size: 1.5em;
+    margin-bottom: 30px;
+}
+
+.question-results {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.question-result-item {
+    padding: 15px;
+    border: 1px solid #dee2e6;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.question-number {
+    font-weight: bold;
+    margin-left: 10px;
+}
+
+.result-indicator {
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+small {
+    display: block;
+    margin-top: 5px;
+}

@@ -1,0 +1,170 @@
+/* أنماط نموذج بيانات المتسابق */
+.contestant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contestant-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contestant-form label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
+}
+
+.contestant-form input {
+    padding: 12px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contestant-form input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+}
+
+.contestant-form input:invalid {
+    border-color: #ff6b6b;
+}
+
+.contestant-form input::placeholder {
+    color: #999;
+}
+
+/* نمط معلومات المتسابق في النتيجة */
+.contestant-info {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contestant-info h3 {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.contestant-info p {
+    margin: 5px 0;
+    color: #34495e;
+    font-size: 1rem;
+}
+
+.contestant-info .info-label {
+    font-weight: bold;
+    color: #7f8c8d;
+    margin-left: 8px;
+}
+
+/* تحسين نمط الزر في النموذج */
+.contestant-form .start-btn {
+    margin-top: 10px;
+    width: 100%;
+}
+
+/* رسالة الخطأ للحقول غير الصالحة */
+.contestant-form input:invalid + .error-message {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}
+.contestant-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 400px;
+    margin: 0 auto 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.contestant-form .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.contestant-form label {
+    font-weight: bold;
+    color: #333;
+    font-size: 1rem;
+}
+
+.contestant-form input {
+    padding: 10px 15px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.contestant-form input:focus {
+    border-color: #4CAF50;
+    outline: none;
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.2);
+}
+
+.contestant-form input:invalid {
+    border-color: #ff6b6b;
+}
+
+.contestant-form input::placeholder {
+    color: #999;
+}
+
+/* أنماط معلومات المتسابق في النتيجة */
+.contestant-info {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.contestant-info h3 {
+    color: #2c3e50;
+    margin: 0 0 10px 0;
+    font-size: 1.2rem;
+}
+
+.contestant-info p {
+    margin: 5px 0;
+    color: #34495e;
+    font-size: 1rem;
+}
+
+.contestant-info .info-label {
+    font-weight: bold;
+    color: #7f8c8d;
+    margin-left: 8px;
+}
+
+/* تحسين نمط الزر في النموذج */
+.contestant-form .start-btn {
+    margin-top: 10px;
+}
+
+/* رسالة الخطأ للحقول غير الصالحة */
+.contestant-form input:invalid + .error-message {
+    color: #ff6b6b;
+    font-size: 0.85rem;
+    margin-top: 4px;
+}

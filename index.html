@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نظام المسابقات</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/rewards2.css">
+    <link rel="stylesheet" href="css/celebration.css">
+    <link rel="stylesheet" href="css/fireworks.css">
+    <link rel="stylesheet" href="css/start-screen.css">
+    <link rel="stylesheet" href="css/questions.css">
+    <link rel="stylesheet" href="css/balloons.css">
+    <link rel="stylesheet" href="css/modal.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+<body>
+    <button id="admin-btn" class="admin-icon" title="لوحة التحكم">
+        <span class="material-icons">admin_panel_settings</span>
+    </button>
+
+    <div class="container">
+        <div id="quiz-container" class="hide">
+            <h2 id="question"></h2>
+            <div id="answer-buttons" class="options">
+            </div>
+            <div id="answer-result" class="result hide">
+                <div class="result-icon"></div>
+                <div class="result-text"></div>
+            </div>
+            <div class="controls">
+                <button id="next-btn" class="btn btn-primary">السؤال التالي</button>
+                <span id="score" class="score"></span>
+            </div>
+        </div>
+
+        <div id="final-result" class="final-result hide">
+            <h2>نتيجة المسابقة</h2>
+            <div class="final-score"></div>
+            <div class="question-results"></div>
+            <div class="result-buttons">
+                <button id="restart-btn" class="btn">إعادة المسابقة</button>
+                <button id="home-btn" class="btn">العودة للرئيسية</button>
+            </div>
+        </div>
+
+        <div id="start-screen" class="start-screen">
+            <div class="quiz-icon">🎯</div>
+            <h1>مرحباً بك في نظام المسابقات</h1>
+            <form id="contestant-form" class="contestant-form">
+                <div class="form-group">
+                    <label for="contestant-name">اسم المتسابق</label>
+                    <input type="text" id="contestant-name" required 
+                           placeholder="أدخل اسمك الكامل"
+                           autocomplete="name">
+                </div>
+                <div class="form-group">
+                    <label for="contestant-phone">رقم الجوال</label>
+                    <input type="tel" id="contestant-phone" required 
+                           placeholder="05XXXXXXXX"
+                           pattern="[0-9]{10}" 
+                           title="يرجى إدخال رقم جوال صحيح من 10 أرقام"
+                           autocomplete="tel">
+                </div>
+                <button type="submit" class="start-btn">بدء المسابقة</button>
+            </form>
+        </div>
+
+        <!-- نافذة كلمة مرور لوحة التحكم -->
+        <div id="password-modal" class="modal hide">
+            <div class="modal-content">
+                <h3>تسجيل الدخول للوحة التحكم</h3>
+                <form id="admin-password-form">
+                    <div class="form-group">
+                        <label for="admin-password">كلمة المرور:</label>
+                        <input type="password" id="admin-password" required>
+                    </div>
+                    <div class="form-buttons">
+                        <button type="submit" class="btn btn-primary">دخول</button>
+                        <button type="button" class="btn" id="cancel-password">إلغاء</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div id="admin-panel" class="hide">
+            <h2>لوحة الإدارة</h2>
+            <div class="admin-tabs">
+                <button type="button" class="tab-btn active" data-tab="add-question-tab">إضافة سؤال</button>
+                <button type="button" class="tab-btn" data-tab="manage-questions-tab">إدارة الأسئلة</button>
+                <button type="button" class="tab-btn" data-tab="rewards-tab">الجوائز</button>
+            </div>
+            
+            <div id="add-question-tab">
+                <div class="questions-count">
+                    <label for="max-questions">عدد الأسئلة في المسابقة:</label>
+                    <input type="number" id="max-questions" min="1" value="5" required>
+                </div>
+                
+                <div class="questions-count">
+                    <label for="enable-celebration-music">تشغيل موسيقى الاحتفال:</label>
+                    <input type="checkbox" id="enable-celebration-music" checked>
+                    <span id="music-status">مفعّل</span>
+                </div>
+                
+                <form id="question-form">
+                    <div class="question-input">
+                        <label for="new-question">السؤال:</label>
+                        <input type="text" id="new-question" required 
+                               placeholder="اكتب السؤال هنا...">
+                    </div>
+                    
+                    <div class="answers-section">
+                        <div class="answer-option">
+                            <label for="answer1">الإجابة 1:</label>
+                            <input type="text" id="answer1" required 
+                                   placeholder="اكتب الإجابة الأولى...">
+                            <div class="correct-answer">
+                                <input type="radio" name="correct" value="0" required>
+                                <span>إجابة صحيحة</span>
+                            </div>
+                        </div>
+                        
+                        <div class="answer-option">
+                            <label for="answer2">الإجابة 2:</label>
+                            <input type="text" id="answer2" required 
+                                   placeholder="اكتب الإجابة الثانية...">
+                            <div class="correct-answer">
+                                <input type="radio" name="correct" value="1">
+                                <span>إجابة صحيحة</span>
+                            </div>
+                        </div>
+                        
+                        <div class="answer-option">
+                            <label for="answer3">الإجابة 3:</label>
+                            <input type="text" id="answer3" required 
+                                   placeholder="اكتب الإجابة الثالثة...">
+                            <div class="correct-answer">
+                                <input type="radio" name="correct" value="2">
+                                <span>إجابة صحيحة</span>
+                            </div>
+                        </div>
+                        
+                        <div class="answer-option">
+                            <label for="answer4">الإجابة 4:</label>
+                            <input type="text" id="answer4" required 
+                                   placeholder="اكتب الإجابة الرابعة...">
+                            <div class="correct-answer">
+                                <input type="radio" name="correct" value="3">
+                                <span>إجابة صحيحة</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <input type="hidden" id="edit-question-id" value="">
+                    <button type="submit" id="question-submit-btn">إضافة السؤال</button>
+                </form>
+            </div>
+            
+            <div id="manage-questions-tab" class="hide">
+                <div class="questions-list">
+                    <!-- سيتم إضافة الأسئلة هنا ديناميكياً -->
+                </div>
+            </div>
+
+            <div id="rewards-tab" class="hide">
+                <h3>الجوائز</h3>
+                <div id="rewards-list" class="rewards-list">
+                    <!-- قائمة الجوائز ستعرض هنا -->
+                </div>
+                <form id="reward-form" class="reward-form">
+                    <div class="form-group">
+                        <label for="reward-title">اسم الجائزة:</label>
+                        <input type="text" id="reward-title" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="reward-image">صورة الجائزة:</label>
+                        <input type="file" id="reward-image" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn">إضافة الجائزة</button>
+                </form>
+            </div>
+
+            <div class="admin-controls">
+                <button id="back-to-start" class="btn">عودة للصفحة الرئيسية</button>
+            </div>
+        </div>
+    </div>
+    <canvas id="confetti-canvas"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
+    <script src="js/confetti.js"></script>
+    <script src="js/fireworks.js"></script>
+    <script src="js/balloons.js"></script>
+    <script src="js/celebration-music.js"></script>
+    <script src="js/script2.js"></script>
+</body>
+</html>

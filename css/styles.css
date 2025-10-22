@@ -1,0 +1,608 @@
+body {
+    font-family: 'Cairo', sans-serif;
+    background: linear-gradient(135deg, #4a3014 0%, #8B4513 100%);
+    color: #fff;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    background: rgba(139, 69, 19, 0.15);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 3rem 2.5rem;
+    box-shadow: 0 8px 32px 0 rgba(218, 165, 32, 0.2);
+    border: 1px solid rgba(218, 165, 32, 0.3);
+    width: 50vw;
+    max-width: 50vw;
+    min-width: 500px;
+    margin: 0;
+    position: relative;
+    z-index: 500; /* فوق الكونفيتي */
+    box-sizing: border-box;
+}
+
+.admin-icon {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    opacity: 0.7;
+    transition: opacity 0.3s;
+    z-index: 1000;
+}
+
+.admin-icon:hover {
+    opacity: 1;
+}
+
+.admin-icon img {
+    width: 32px;
+    height: 32px;
+}
+
+h1, h2, h3 {
+    text-align: center;
+    color: #FFD700;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.6);
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    background: transparent;
+    padding: 0;
+    border-radius: 0;
+    border: none;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+    color: #FFD700;
+    font-weight: 700;
+    text-align: right;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+input[type="text"], input[type="tel"], input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    border: 2px solid #DAA520;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.95);
+    color: #2c3e50;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-sizing: border-box;
+    margin-bottom: 0;
+    transition: all 0.3s ease;
+    text-align: right;
+    direction: rtl;
+}
+
+input[type="text"]:focus, input[type="tel"]:focus, input[type="password"]:focus {
+    outline: none;
+    border-color: #DAA520;
+    box-shadow: 0 0 0 3px rgba(218, 165, 32, 0.2);
+    background: #fff;
+}
+
+input[type="text"]::placeholder, input[type="tel"]::placeholder, input[type="password"]::placeholder {
+    color: #bdc3c7;
+    opacity: 0.8;
+}
+
+.btn {
+    background: linear-gradient(135deg, #e74c3c, #c0392b);
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 1.3rem;
+    width: 100%;
+    transition: all 0.3s ease;
+    font-weight: 700;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(135deg, #c0392b, #e74c3c);
+    box-shadow: 0 6px 15px rgba(231, 76, 60, 0.3);
+}
+
+.btn-primary {
+    background: linear-gradient(145deg, #CD853F, #8B4513);
+    border: 1px solid rgba(218, 165, 32, 0.3);
+}
+
+.btn-primary:hover {
+    background: linear-gradient(145deg, #8B4513, #CD853F);
+}
+
+.hide {
+    display: none;
+}
+
+/* تنسيق خاص بالمسابقة */
+.quiz-container {
+    text-align: center;
+}
+
+.question {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.options {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.option-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    padding: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.option-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.result {
+    font-size: 1.2rem;
+    margin-top: 2rem;
+    padding: 1rem;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* تنسيق شاشة النتيجة النهائية */
+.final-result {
+    text-align: center;
+    padding: 2rem;
+    animation: fadeInScale 0.5s ease-out;
+    background: linear-gradient(135deg, #a67c52 0%, #f9e4b7 100%);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px 0 rgba(139, 69, 19, 0.12);
+    max-width: 700px;
+    margin: 2rem auto;
+    color: #8B4513;
+}
+
+.celebration-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.celebration-icon {
+    width: 48px;
+    height: 48px;
+    animation: bounce 2s infinite;
+}
+
+.final-result h1 {
+    color: #FFD700;
+    font-size: 3rem;
+    margin: 0;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+    animation: pulse 2s infinite;
+}
+
+.celebration-text {
+    font-size: 2rem;
+    color: #fff;
+    margin: 1.5rem 0;
+    text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    animation: shineText 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* تنسيقات قسم الجوائز */
+.rewards-container {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    padding: 2rem;
+    margin-top: 2rem;
+}
+
+.rewards-header {
+    margin-bottom: 2rem;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.reward-form {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 2rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.reward-form textarea {
+    width: 100%;
+    min-height: 100px;
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    border-radius: 8px;
+    padding: 1rem;
+    color: #fff;
+    resize: vertical;
+}
+
+.rewards-list {
+    margin-top: 3rem;
+}
+
+.reward-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.reward-item:hover {
+    transform: translateX(-5px);
+    background: rgba(255, 255, 255, 0.12);
+}
+
+.reward-info {
+    flex-grow: 1;
+}
+
+.reward-name {
+    font-size: 1.2rem;
+    color: #FFD700;
+    margin-bottom: 0.5rem;
+}
+
+.reward-description {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+}
+
+.reward-score {
+    background: rgba(255, 215, 0, 0.2);
+    color: #FFD700;
+    padding: 0.3rem 0.8rem;
+    background: linear-gradient(135deg, #f9e4b7 0%, #fffbe6 100%);
+    border-radius: 16px;
+    padding: 1.5rem;
+    margin: 2rem auto;
+    box-shadow: 0 2px 8px rgba(139,69,19,0.07);
+    max-width: 400px;
+    text-align: center;
+    border: 1px solid #d2b48c;
+    color: #8B4513;
+    border-radius: 15px;
+    font-size: 0.9rem;
+}
+
+.reward-actions {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.reward-actions button {
+    background: none;
+    border: none;
+    color: rgba(255, 255, 255, 0.7);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.reward-actions button:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+}
+
+/* تنسيقات نظام الجوائز المحدث */
+.rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.reward-card {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.reward-card:hover {
+    transform: translateY(-5px);
+}
+
+.reward-image {
+    width: 100%;
+    height: 200px;
+    background: rgba(0, 0, 0, 0.2);
+    position: relative;
+    overflow: hidden;
+}
+
+.reward-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.image-upload-wrapper {
+    position: relative;
+    width: 100%;
+    height: 200px;
+    border: 2px dashed rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.image-upload-wrapper:hover {
+    border-color: #2196F3;
+}
+
+.image-upload {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.image-preview {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 255, 255, 0.05);
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.upload-icon {
+    font-size: 48px;
+    margin-bottom: 1rem;
+}
+
+.form-row {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.form-group.half {
+    flex: 1;
+}
+
+.reward-badge {
+    padding: 0.3rem 0.8rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    display: inline-block;
+}
+
+.reward-content {
+    padding: 1.5rem;
+}
+
+.btn-secondary {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.form-actions {
+    display: flex;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+/* تنسيقات أزرار التبويب */
+.admin-tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 1rem;
+}
+
+.tab-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    background: rgba(255, 255, 255, 0.1);
+    color: #fff;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    font-size: 1rem;
+}
+
+.tab-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+}
+
+.tab-btn.active {
+    background: #DAA520;
+    color: white;
+    box-shadow: 0 4px 15px rgba(218, 165, 32, 0.3);
+}
+
+.better-luck {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 1rem;
+}
+
+.better-luck h1 {
+    font-size: 3.5rem;
+    color: #FFFFFF;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+    margin: 0;
+    font-weight: 800;
+    letter-spacing: 1px;
+    animation: fadeIn 1s ease-out;
+}
+
+.score-display {
+    font-size: 4rem;
+    color: #FFFFFF;
+    margin: 2rem 0;
+    text-shadow: 3px 3px 8px rgba(0,0,0,0.6);
+    font-weight: 800;
+    animation: bounceIn 1s ease-out;
+}
+
+/* نص المساعدة تحت النسبة */
+.better-luck p,
+.better-luck .hint,
+.better-luck .subtitle {
+    color: rgba(255,255,255,0.95);
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.4);
+    font-weight: 600;
+}
+
+.contestant-info {
+    background: linear-gradient(135deg, #f9e4b7 0%, #fffbe6 100%);
+    padding: 1.5rem;
+    border-radius: 15px;
+    margin: 2rem 0;
+    backdrop-filter: blur(10px);
+    border: 1px solid #d2b48c;
+    color: #5a2e0e; /* نص أغمق لقراءة أفضل */
+}
+
+.contestant-info h3 {
+    color: #FFD700;
+    margin-bottom: 1rem;
+}
+
+.contestant-detail {
+    font-size: 1.2rem;
+    margin: 0.5rem 0;
+    color: #5a2e0e;
+}
+
+/* تأثيرات حركية */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shineText {
+    0% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+    50% {
+        text-shadow: 0 0 25px rgba(255, 255, 255, 1);
+    }
+    100% {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+    }
+}
+
+@keyframes bounceIn {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+#confetti-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 200; /* أقل من محتوى الصندوق لقراءة أوضح */
+}
+
+/* توسيط المحتوى - Media Queries */
+@media (max-width: 1200px) {
+    .container {
+        width: 70vw;
+        max-width: 70vw;
+        min-width: 400px;
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 90vw;
+        max-width: 90vw;
+        min-width: 300px;
+    }
+}

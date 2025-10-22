@@ -1,0 +1,103 @@
+/* أنماط قسم المكافآت */
+.rewards-tab {
+    padding: 20px;
+}
+
+.rewards-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group select,
+.form-group input[type="text"],
+.form-group textarea {
+    padding: 8px 12px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+}
+
+.conditions-group {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+.checkbox-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.checkbox-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+#custom-reward-section {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+}
+
+#custom-reward-section.hide {
+    display: none;
+}
+
+/* أنماط قسم المكافأة في نتائج المسابقة */
+.reward-section {
+    background: linear-gradient(145deg, #fff9e6, #fff5d6);
+    border: 2px solid #ffd700;
+    border-radius: 10px;
+    padding: 20px;
+    margin: 20px 0;
+    box-shadow: 0 4px 15px rgba(255, 215, 0, 0.1);
+}
+
+.reward-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.reward-icon {
+    font-size: 2.5rem;
+    animation: bounce 1s infinite;
+}
+
+.reward-message {
+    flex: 1;
+    font-size: 1.2rem;
+    color: #6b4b00;
+    text-align: center;
+    line-height: 1.4;
+}
+
+/* الحركات */
+@keyframes bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
